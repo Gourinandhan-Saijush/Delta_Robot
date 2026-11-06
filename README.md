@@ -15,7 +15,6 @@ The presentation is the main overview of the robot mechanics, control cabinet, i
 
 | Path | Contents |
 | --- | --- |
-| `Final1.pptx` | EE413 tutorial presentation |
 | `programs/python/` | Pick-and-place, mouse jog, and shape-motion examples |
 | `programs/irc/` | iRC pick-and-place XML example |
 | `diagnostics/` | Network and CRI status/API inspection tools |
