@@ -21,7 +21,7 @@ git clone https://github.com/CommonplaceRobotics/CRI-Python-Lib.git $criLibSourc
 .\.venv\Scripts\python.exe -c "from cri_lib import CRIController; print('cri_lib import OK')"
 ```
 
-If the temporary `CRI-Python-Lib` folder already exists, choose a different folder name for `$criLibSource`. The original project notes recorded Python 3.13.17 and `cri_lib` 0.4.0 on the setup laptop; those are historical details, not a guarantee that the same versions are installed or required now.
+If the temporary `CRI-Python-Lib` folder already exists, choose a different folder name for `$criLibSource`. The Windows setup notes from 22 October 2026 record Python 3.13.17, pip 26.2.2, and `cri_lib` 0.4.0; the install and import checks succeeded, but the notes say a physical CRI connection was not confirmed. Treat these as historical setup results, not a guarantee about current versions or robot connectivity.
 
 ## Robot address and port
 
@@ -33,6 +33,8 @@ The example scripts use the standard embedded-controller endpoint documented by 
 | iRC/CPRog simulation on the same computer | `127.0.0.1` | Usually `3921` (may use `3921`–`3931`) | Check the simulation log or CRI interface settings for its active port. |
 
 For an embedded controller, the computer running the Python script needs an Ethernet connection on the robot controller's network. The CRI documentation gives `192.168.3.1` as an example computer address for the standard controller subnet. Use only the address and network setup approved for the lab; do not change college network settings based on this example.
+
+The Windows diagnostics notes record `192.168.3.20` with subnet mask `255.255.255.0` as a previously used laptop Ethernet configuration. This is a historical example, not a confirmed current laptop or lab setting. Check the active adapter with `ipconfig` and use only the values approved for the robot network.
 
 ## Connection-only example
 
@@ -57,15 +59,20 @@ finally:
 
 The CRI library manages the connection and keep-alive handling. A successful connection only confirms communication with the controller; it does not confirm that the robot, tool, or any motion target is safe.
 
-## Check the connection
+## Check the network and CRI connection
 
-From the repository root, the read-only status diagnostic can connect and print the latest robot state without commanding motion or digital outputs:
+The notes do not confirm a successful connection to the physical controller. Check the network before attempting the read-only CRI diagnostic:
+
+1. From the repository root, run `ipconfig` and identify the Ethernet adapter connected to the robot network. Compare its address and subnet with the lab-approved settings.
+2. Run `diagnostics\network_check.bat`. It pings the example controller address and checks TCP port `3920` with `Test-NetConnection`.
+3. A failed ping by itself does not prove the controller is unreachable because ICMP may be blocked. Check the `TcpTestSucceeded` result for the TCP port check. A successful TCP check confirms that the port accepts a network connection; it does not confirm safe robot operation or authorize motion.
+4. If the TCP check succeeds and the lab procedure allows it, run the read-only status diagnostic and retain its terminal output:
 
 ```powershell
 .\.venv\Scripts\python.exe diagnostics\cri_status_test.py
 ```
 
-The network diagnostic is also available at `diagnostics/network_check.bat`. Both diagnostics use the repository's example IP and port, so update those values only after confirming the live lab settings.
+The batch file and status diagnostic use the repository's example controller IP and port. Change them only after confirming the live lab settings. If TCP fails, check the selected Ethernet adapter, cable/link, approved subnet configuration, controller address, and CRI port with the supervisor before retrying.
 
 ## End-effector output channels
 
