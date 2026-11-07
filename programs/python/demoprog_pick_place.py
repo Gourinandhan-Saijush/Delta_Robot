@@ -5,8 +5,8 @@ from cri_lib import CRIController
 ROBOT_IP = "192.168.3.11"
 CRI_PORT = 3920
 
-BLOWOFF_OUTPUT = 23
-SUCTION_OUTPUT = 22
+BLOWOFF_OUTPUT = 22
+SUCTION_OUTPUT = 23
 
 
 def check_robot_ready(controller):

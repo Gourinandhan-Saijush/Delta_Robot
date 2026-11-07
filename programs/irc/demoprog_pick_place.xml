@@ -3,11 +3,11 @@
     <Header RobotName="igus Delta" RobotType="DLE-DR-0050" GripperType="CobotPumpSimTest.xml" Software="iRC V902-15-000" VelocitySetting="0" />
     <Linear AbortCondition="False" Nr="1" Source="Numerical" vel="100" acc="40" smooth="0" UserFrame="#base" x="0" y="0" z="110" a="0" b="0" c="180" e1="0" e2="0" e3="0" Descr="" />
     <Linear AbortCondition="False" Nr="2" Source="Numerical" vel="400" acc="40" smooth="10" UserFrame="#base" x="0" y="90" z="-110" a="0" b="0" c="180" e1="0" e2="0" e3="0" Descr="" />
-    <Output Nr="3" Channel="DOut22" State="False" Descr="" />
-    <Output Nr="4" Channel="DOut23" State="True" Descr="" />
+    <Output Nr="3" Channel="DOut22" State="False" Descr="Blow-off Off" />
+    <Output Nr="4" Channel="DOut23" State="True" Descr="Suction On" />
     <Linear AbortCondition="False" Nr="5" Source="Numerical" vel="400" acc="40" smooth="0" UserFrame="#base" x="0" y="90" z="110" a="0" b="0" c="180" e1="0" e2="0" e3="0" Descr="" />
     <Linear AbortCondition="False" Nr="6" Source="Numerical" vel="400" acc="40" smooth="0" UserFrame="#base" x="0" y="-90" z="110" a="0" b="0" c="180" e1="0" e2="0" e3="0" Descr="" />
     <Linear AbortCondition="False" Nr="7" Source="Numerical" vel="400" acc="40" smooth="0" UserFrame="#base" x="0" y="-90" z="-90" a="0" b="0" c="180" e1="0" e2="0" e3="0" Descr="" />
-    <Output Nr="8" Channel="DOut23" State="False" Descr="" />
-    <Output Nr="9" Channel="DOut22" State="True" Descr="" />
+    <Output Nr="8" Channel="DOut23" State="False" Descr="Suction Off" />
+    <Output Nr="9" Channel="DOut22" State="True" Descr="Blow-off On" />
 </Program>

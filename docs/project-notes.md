@@ -21,14 +21,14 @@ This is a curated summary of the Delta Robot Notion notes, organized around the 
 
 - The end effector recorded in the notes is a Schmalz CobotPump Mini ECBPMi, 24 V DC, part number 10.03.01.00556.
 - The notes report a vacuum activation noise, an E03 calibration error, and an H1/SP1 suction threshold message. The root causes were not confirmed.
-- DOut23 suction and DOut22 blow-off appear in the later XML/program configuration, but this does not confirm the physical cabinet wiring. The notes also mention earlier channel uncertainty.
-- Which 24 V supply feeds the pump, its configured control mode, and the physical output mapping require verification by an authorized technician.
+- Project output mapping: DOut22 is blow-off and DOut23 is suction. Verify the controller's I/O configuration before physically switching outputs.
+- The 24 V supply, configured control mode, and physical cabinet wiring require verification by an authorized technician.
 - No successful physical workpiece grip is confirmed in the notes.
 
 ## iRC programs and motion examples
 
 - `programs/irc/demoprog_pick_place.xml` is the attached XML example from the project notes.
-- The notes discuss a tool configuration named `CobotPump.xml` and a program header that refers to `CobotPumpSimTest.xml`. Confirm which tool file is actually loaded by iRC.
+- `CobotPump.xml` is a custom iRC tool configuration built for the Schmalz CobotPump Mini ECBPMi end effector. The included demo-program XML header refers to `CobotPumpSimTest.xml`; confirm the exact configuration loaded by iRC before running the program. The custom tool configuration file is not included in this repository.
 - The XML and Python motion examples contain targets and output sequences that have not been validated for the current physical setup. Do not infer safety from the example values.
 - Some historical XML snippets are documented in the Notion notes but were not available as separate attached program files, so they are not recreated here as runnable files.
 

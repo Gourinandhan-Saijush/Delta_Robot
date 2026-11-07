@@ -25,13 +25,13 @@ The presentation is the main overview of the robot mechanics, control cabinet, i
 
 The project notes record Python 3.13.17 and `cri_lib` 0.4.0 on the original Windows laptop. The CRI library is maintained separately at [CommonplaceRobotics/CRI-Python-Lib](https://github.com/CommonplaceRobotics/CRI-Python-Lib). Confirm the library and controller versions that are supported by the lab setup before installing or connecting.
 
-The diagnostics and motion programs contain controller connection settings from earlier setup notes. Treat these as historical values and verify the live controller address and CRI port with the lab supervisor before use.
+The scripts use the standard embedded-controller defaults `192.168.3.11:3920`. Verify the live controller address and CRI port with the lab supervisor before use. The project I/O mapping is DOut22 for blow-off and DOut23 for suction; verify the controller's I/O configuration before physically switching outputs. See [`programs/python/README.md`](programs/python/README.md) for installation and connection instructions.
 
 ## Safety and validation status
 
-Some Python programs and the iRC XML file can send robot motion or digital-output commands. The mouse-control file displays a preview-only message while its physical-motion setting is enabled; the shape program also has dry-run mode disabled. The code is included as supplied and has not been changed or tested as part of this repository setup.
+Some Python programs and the iRC XML file can send robot motion or digital-output commands. The mouse-control file displays a preview-only message while its physical-motion setting is enabled; the shape program also has dry-run mode disabled. The examples have not been validated against the current physical setup.
 
-The project notes do not confirm a successful physical CRI connection or a successful workpiece grip. The active tool file, TCP offset, physical suction/blow-off wiring, worktable frame, and safe motion targets are not fully verified. Do not run motion or output commands until an authorized lab technician has checked the robot state, tool and TCP, I/O mapping, targets, workspace, and lab-approved safeguards.
+The project notes do not confirm a successful physical CRI connection or a successful workpiece grip. The custom `CobotPump.xml` tool configuration was built for the Schmalz CobotPump Mini ECBPMi end effector, but the loaded tool file, TCP offset, physical wiring, worktable frame, and safe motion targets still need to be checked. Do not run motion or output commands until an authorized lab technician has checked the robot state, tool and TCP, I/O mapping, targets, workspace, and lab-approved safeguards.
 
 ## Credit
 
