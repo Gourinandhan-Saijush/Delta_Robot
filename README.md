@@ -9,13 +9,12 @@ Project materials for the Maynooth University EE413 robotics lab tutorial on the
 - End effector: Schmalz CobotPump Mini ECBPMi vacuum generator
 - Python interface: CRI Ethernet interface with `cri_lib`
 
-The presentation is the main overview of the robot mechanics, control cabinet, iRC workflow, safety controls, coordinate frames, and programming options. See [`Final1.pptx`](Final1.pptx) and [`docs/project-notes.md`](docs/project-notes.md).
+The presentation is the main overview of the robot mechanics, control cabinet, iRC workflow, safety controls, coordinate frames, and programming options. See[`docs/project-notes.md`](docs/project-notes.md).
 
 ## Repository contents
 
 | Path | Contents |
 | --- | --- |
-| `Final1.pptx` | EE413 tutorial presentation |
 | `programs/python/` | Pick-and-place, mouse jog, and shape-motion examples |
 | `programs/irc/` | iRC pick-and-place XML example |
 | `diagnostics/` | Network and CRI status/API inspection tools |
